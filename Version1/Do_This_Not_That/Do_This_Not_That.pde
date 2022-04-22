@@ -7,6 +7,11 @@ float x,y, xDiameter, yDiameter;
 color black=#000000, white=#FFFFE1; //Night Mode, blue is 00, white is not night mode
 boolean rectON=false, ellipseON=false;
 //
+String buttonText1= "Click Me";
+String buttonText2= "Or Me";
+PFont buttonFont;
+color purple = #2C08FF;
+//
 void setup () 
 {
   //Display Geometry
@@ -49,6 +54,11 @@ void setup ()
   y = ellipseRectYCenter;
   xDiameter = ellipseXDiameter;
   yDiameter = ellipseYDiameter;
+  //
+  println("Start of Console");
+  //
+  buttonFont = createFont ("Arial-Black-48", 48);
+  PFont.list();
   
 }//End setup
 //
@@ -60,6 +70,13 @@ void draw()
   if (rectON==true && ellipseON==false) rect(rectDisplayX, rectDisplayY, rectDisplayWidth, rectDisplayHeight); //DIV:  Display Rectangle
   //rect(ellipseX, ellipseY, ellipseXDiameter, ellipseYDiameter); //DIV:  Display Circle
   if (rectON==false && ellipseON==true) ellipse(x, y, xDiameter, yDiameter);
+  
+  textFont(buttonFont, 25);
+  //
+  //Specific Text per button
+  text(buttonText1, buttonX1, buttonY1, buttonWidth1, buttonHeight1);
+  text(buttonText2, buttonX2, buttonY2, buttonWidth2, buttonHeight2);
+  fill(white);
 }//End draw
 //
 void keyPressed() 
